@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sarkar.smart_bicycle.MainActivity"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/back_new"
+        android:id="@+id/imageView"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/background_image"
+        android:cropToPadding="false"
+        android:adjustViewBounds="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:isScrollContainer="true">
+
+            <TextView
+                android:text="@string/please_edit_your_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/namee"
+                android:contentDescription="@string/name_desc"
+                android:fontFamily="sans-serif"
+                android:textSize="24sp"
+                android:textColor="?attr/colorAccent"
+                android:textStyle="normal|bold"
+                android:textAllCaps="false"
+                android:textAlignment="viewStart"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                tools:ignore="RelativeOverlap" />
+
+            <Button
+                android:text="@string/edit"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit"
+                android:onClick="onEdit"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true" />
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/grid"
+                android:layout_below="@+id/edit"
+                android:columnCount="3"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true">
+
+                <ImageButton
+                    android:layout_width="106dp"
+                    android:layout_height="106dp"
+                    android:background="@drawable/ride_new"
+                    android:onClick="onRide"
+                    android:contentDescription="@string/start_ride"
+                    android:scaleType="fitXY"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    style="@android:style/Widget.DeviceDefault.ImageButton"
+                    android:id="@+id/startRide" />
+
+                <ImageButton
+                    android:layout_width="106dp"
+                    android:layout_height="106dp"
+                    android:background="@drawable/search_data_new"
+                    android:onClick="onData"
+                    android:contentDescription="@string/view_data"
+                    style="@android:style/Widget.DeviceDefault.ImageButton"
+                    android:id="@+id/viewData"
+                    android:padding="10dp" />
+
+                <ImageButton
+                    android:layout_width="106dp"
+                    android:layout_height="106dp"
+                    android:background="@drawable/analysis_new"
+                    android:onClick="onAnalysis"
+                    android:contentDescription="@string/view_analysis"
+                    style="@android:style/Widget.DeviceDefault.ImageButton"
+                    android:id="@+id/analysis" />
+
+                <TextView
+                    android:text="@string/start_ride"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2"
+                    android:textSize="18sp"
+                    android:textColor="?attr/editTextColor"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:text="@string/view_previous_data"
+                    android:layout_width="112dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:textColor="?attr/editTextColor"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:text="@string/view_analysis"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView4"
+                    android:textSize="18sp"
+                    android:textAlignment="center"
+                    android:textColor="?attr/editTextColor" />
+            </GridLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/grid"
+                android:id="@+id/pil"
+                android:layout_centerInParent="true"
+                android:hint="@string/pass_hint">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberPassword"
+                    android:ems="10"
+                    android:id="@+id/password"
+                    android:nextFocusUp="@id/password"
+                    android:nextFocusLeft="@id/password"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="?attr/colorAccent"
+                    android:layout_centerInParent="true"
+                    tools:ignore="LabelFor"
+                    android:maxLines="1"
+                    android:textAlignment="center" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.v7.widget.ButtonBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pil"
+                android:orientation="horizontal">
+
+                <Button
+                    android:text="@string/lock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lock"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:onClick="onLock"
+                    android:visibility="gone" />
+
+                <Button
+                    android:text="@string/unlock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/unlock"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:onClick="onUnlock"
+                    android:gravity="center" />
+                <Button
+                    android:text="@string/change_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/chpass"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:onClick="onChangePass"
+                    android:gravity="center" />
+            </android.support.v7.widget.ButtonBarLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout >
